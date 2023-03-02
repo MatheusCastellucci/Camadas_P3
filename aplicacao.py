@@ -26,20 +26,20 @@ import binascii
 #use uma das 3 opcoes para atribuir à variável a porta usada
 #serialName = "/dev/ttyACM0"           # Ubuntu (variacao de)
 #serialName = "/dev/tty.usbmodem1411" # Mac    (variacao de)
-serialName = "COM3"                  # Windows(variacao de)
+serialName = "COM5"                  # Windows(variacao de)
 
 
 def main():
     try:
         #declaramos um objeto do tipo enlace com o nome "com". Essa é a camada inferior à aplicação. Observe que um parametro
         #para declarar esse objeto é o nome da porta.
-        com3 = enlace('COM9')
+        com3 = enlace(serialName)
     
         # Ativa comunicacao. Inicia os threads e a comunicação seiral 
         com3.enable()
         start = time.time()
         #Se chegamos até aqui, a comunicação foi aberta com sucesso. Faça um print para informar.
-        print("ON")
+        print("Começando a comunicação")
         #aqui você deverá gerar os dados a serem transmitidos. 
         # imageR = "./imgs/image.png"
         # imageW = "./imgs/recebidaCopia.png"
