@@ -18,9 +18,9 @@ def main():
         SaveImage = open(imageW, 'wb')
 
         BufferRx, nrx = com4.getData(15)
-
+ 
         print(BufferRx)
-        
+
         txLen = BufferRx[10:11]
         time.sleep(0.01)
         com4.sendData(np.asarray(txLen))
@@ -29,7 +29,7 @@ def main():
         print("Recebendo dados...")
         num_pack = -1
         num_pack_v = 0
-        while num_pack <= PacksLen:
+        while num_pack < PacksLen:
             head, nRx = com4.getData(10)
             txLen = int.from_bytes(head[5:6], "big")
             print("txLen",txLen)
