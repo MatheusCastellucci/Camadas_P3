@@ -29,7 +29,7 @@ def main():
         #Se chegamos até aqui, a comunicação foi aberta com sucesso. Faça um print para informar.
         print("ON")
         #aqui você deverá gerar os dados a serem transmitidos. 
-        imageR = "imgs/image.png"
+        imageR = "img/image.png"
         #seus dados a serem transmitidos são uma lista de bytes a serem transmitidos. Gere esta lista com o 
         #nome de txBuffer. Esla sempre irá armazenar os dados a serem enviados.
         #===========THIS============
@@ -89,17 +89,6 @@ def main():
             estado = -1       
 
 
-
-            
-
-
-
-
-        
-
-        
-         
-    
         # Encerra comunicação
         print("-------------------------")
         print("Comunicação encerrada")
