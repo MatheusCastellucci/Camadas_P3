@@ -29,7 +29,7 @@ def main():
         #Se chegamos até aqui, a comunicação foi aberta com sucesso. Faça um print para informar.
         print("ON")
         #aqui você deverá gerar os dados a serem transmitidos. 
-        imageR = "D:/Faculdade/4_Semestre/FisComp/Client-Server/imgs/image.png"
+        imageR = "imgs/image.png"
         #seus dados a serem transmitidos são uma lista de bytes a serem transmitidos. Gere esta lista com o 
         #nome de txBuffer. Esla sempre irá armazenar os dados a serem enviados.
         #===========THIS============
