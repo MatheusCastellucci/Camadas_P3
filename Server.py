@@ -7,17 +7,20 @@ def main():
     try:
         #declaramos um objeto do tipo enlace com o nome "com". Essa é a camada inferior à aplicação. Observe que um parametro
         #para declarar esse objeto é o nome da porta.
-        com4 = enlace('COM4')
+        com4 = enlace('COM5')
         # Ativa comunicacao. Inicia os threads e a comunicação seiral 
         com4.enable()
         #Se chegamos até aqui, a comunicação foi aberta com sucesso. Faça um print para informar.
-        print("ON")
+        print("Servidor Online")
+
         #aqui você deverá gerar os dados a serem transmitidos. 
-        imageW = "./imgs/recebidaCopia.png"
+        imageW = "./img/Img_recebida.png"
         SaveImage = open(imageW, 'wb')
 
         BufferRx, nrx = com4.getData(15)
+
         print(BufferRx)
+        
         txLen = BufferRx[10:11]
         time.sleep(0.01)
         com4.sendData(np.asarray(txLen))
@@ -26,7 +29,7 @@ def main():
         print("Recebendo dados...")
         num_pack = -1
         num_pack_v = 0
-        while num_pack != PacksLen:
+        while num_pack <= PacksLen:
             head, nRx = com4.getData(10)
             txLen = int.from_bytes(head[5:6], "big")
             print("txLen",txLen)
