@@ -16,7 +16,7 @@ from utils import *
 #serialName = "/dev/tty.usbmodem1411" # Mac    (variacao de)
 # serialName = "COM3"                  # Windows(variacao de)
 
-
+bye = b'\xf2'
 def main():
     try:
         #declaramos um objeto do tipo enlace com o nome "com". Essa é a camada inferior à aplicação. Observe que um parametro
@@ -25,7 +25,7 @@ def main():
     
         # Ativa comunicacao. Inicia os threads e a comunicação seiral 
         com3.enable()
-        start = time.time()
+        tempo = time.time()
         #Se chegamos até aqui, a comunicação foi aberta com sucesso. Faça um print para informar.
         print("ON")
         #aqui você deverá gerar os dados a serem transmitidos. 
@@ -67,6 +67,7 @@ def main():
         while estado == enviando:
             validado = True
             for i in range(0,len(packs)):
+                tempo = time.time()
                 if validado == True:
                     print("Tamanho do pacote:",len(packs[i]))
                     pacote = Datagrama(tipo="data", npacks=lenPayloadInt, num_pack=i, payload_len=len(packs[i]), payload=packs[i])
@@ -79,6 +80,7 @@ def main():
 
                     print( validacao[10:11])
                     validado = validacao[10:11] == b'\x01' or validacao[10:11] == b'\x02'
+
                 else:
                     error = True
                     while error:
